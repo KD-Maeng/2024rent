@@ -12,7 +12,7 @@
       justify-content: center;
       max-width: 400px;
       margin: 0 auto;
-      position: relative; /* #gallery 요소를 상대 위치로 설정 */
+      position: relative;
     }
     #gallery img {
       width: 100%;
@@ -28,16 +28,17 @@
       background-color: #4CAF50;
       border-radius: 5px;
     }
-    /* 새로운 버튼 스타일을 추가 */
+    /* 수정된 버튼 스타일 */
     .view-button {
       position: absolute;
-      top: 40%; /* 버튼을 상단에서 40% 위치에 배치 */
-      left: 90%; /* 버튼을 좌측에서 90% 위치에 배치 */
+      top: 30%; /* 버튼을 상단에서 30% 위치에 배치 */
+      left: 70%; /* 버튼을 좌측에서 70% 위치에 배치 */
       padding: 10px;
       text-decoration: none;
       color: white;
-      background-color: rgba(76, 175, 80, 0.5); /* 반투명한 배경색 */
-      border-radius: 50%; /* 동그란 모양 */
+      background-color: rgba(76, 175, 80, 0.7); /* 투명도를 줄임 */
+      border-radius: 0px; /* 네모난 모양 */
+      box-shadow: 0px 0px 10px 5px rgba(76, 175, 80, 0.7); /* 반짝이는 효과 */
     }
   </style>
 </head>
@@ -49,7 +50,7 @@
   <!---h2>사순절 묵상집</h2--->
   <div id="gallery">
     <img src="image/1일차.jpg">
-    <a href="index.html" class="view-button">360 View</a> <!-- 새로운 버튼을 추가 -->
+    <a href="index.html" class="view-button">360˚ View ▶</a> <!-- 수정된 버튼 -->
   </div>
   <footer>
     <p>© 2024 by MSCH. All rights reserved.</p>
