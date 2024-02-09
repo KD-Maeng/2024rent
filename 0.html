@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    h2 { 
+      text-align: center;
+      font-family: "Malgun Gothic", sans-serif;
+    }
+    #gallery {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative; /* #gallery 요소를 상대 위치로 설정 */
+    }
+    #gallery img {
+      width: 100%;
+      border: 0px solid black;
+    }
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      background-color: #4CAF50;
+      border-radius: 5px;
+    }
+    /* 새로운 버튼 스타일을 추가 */
+    .view-button {
+      position: absolute;
+      top: 40%; /* 버튼을 상단에서 40% 위치에 배치 */
+      left: 90%; /* 버튼을 좌측에서 90% 위치에 배치 */
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      background-color: rgba(76, 175, 80, 0.5); /* 반투명한 배경색 */
+      border-radius: 50%; /* 동그란 모양 */
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-button">뒤로가기</a>
+  <header>
+    <!--img src="logo.png" alt="logo"-->
+  </header>
+  <!---h2>사순절 묵상집</h2--->
+  <div id="gallery">
+    <img src="image/1일차.jpg">
+    <a href="index.html" class="view-button">360 View</a> <!-- 새로운 버튼을 추가 -->
+  </div>
+  <footer>
+    <p>© 2024 by MSCH. All rights reserved.</p>
+  </footer>
+</body>
+</html>
