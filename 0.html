@@ -27,34 +27,39 @@
       color: white;
       background-color: #4CAF50;
       border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0px 0px 10px 5px rgba(76, 175, 80, 0.8);
+      transition: transform .2s;
     }
-    /* 수정된 버튼 스타일 */
+    .back-button:hover {
+      transform: scale(1.1);
+    }
     .view-button {
       position: absolute;
-      top: 38.5%; /* 버튼을 상단에서 30% 위치에 배치 */
-      left: 70%; /* 버튼을 좌측에서 60% 위치에 배치 */
+      top: 30%;
+      left: 60%;
       padding: 10px;
       text-decoration: none;
       color: white;
-      background-color: rgba(85, 85, 85, 0.85); /* 짙은 회색으로 변경 */
-      border-radius: 0px; /* 네모난 모양 */
-      box-shadow: 0px 0px 10px 5px rgba(76, 175, 80, 0.8); /* 반짝이는 효과 */
-      transition: transform .2s; /* 애니메이션 효과 */
+      background-color: rgba(85, 85, 85, 0.8);
+      border-radius: 0px;
+      box-shadow: 0px 0px 10px 5px rgba(76, 175, 80, 0.8);
+      transition: transform .2s;
     }
     .view-button:hover {
-      transform: scale(1.1); /* 마우스 오버시 버튼 확대 */
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
-  <a href="index.html" class="back-button">뒤로가기</a>
+  <a onclick="history.back()" class="back-button">뒤로가기</a>
   <header>
     <!--img src="logo.png" alt="logo"-->
   </header>
   <!---h2>사순절 묵상집</h2--->
   <div id="gallery">
     <img src="image/1일차.jpg">
-    <a href="panorama.html" class="view-button">360˚ View</a> <!-- 수정된 버튼 -->
+    <a href="panorama.html" class="view-button">360˚ View</a>
   </div>
   <footer>
     <p>© 2024 by MSCH. All rights reserved.</p>
