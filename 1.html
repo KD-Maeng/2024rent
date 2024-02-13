@@ -19,14 +19,18 @@
       border: 0px solid black; /* 이미지에 5픽셀 두께의 검은색 실선 테두리를 추가 */
     }
     .back-button {
-      position: absolute; /* 뒤로가기 버튼의 위치를 절대값으로 설정 */
-      top: 10px; /* 뒤로가기 버튼을 상단에서 10픽셀 떨어진 위치에 배치 */
-      left: 10px; /* 뒤로가기 버튼을 좌측에서 10픽셀 떨어진 위치에 배치 */
-      padding: 10px; /* 뒤로가기 버튼의 패딩을 10픽셀로 설정 */
-      text-decoration: none; /* 뒤로가기 버튼의 텍스트에 밑줄을 없애줍니다 */
-      color: white; /* 뒤로가기 버튼의 텍스트 색상을 흰색으로 설정 */
-      background-color: #4CAF50; /* 뒤로가기 버튼의 배경색을 설정 */
-      border-radius: 5px; /* 뒤로가기 버튼의 모서리를 둥글게 만듭니다 */
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      background-color: rgba(85, 85, 85, 0.8);
+      border-radius: 0px;
+      transition: transform .2s;
+    }
+    .back-button:hover {
+      transform: scale(1.1);
     }
     .view-button {
       position: absolute;
@@ -58,7 +62,20 @@
     <!-- 이미지 파일의 경로와 이름을 정확하게 적어주세요 -->
 	<br>
         <br>
-    <img src="image/1일차.jpg">
+
+	  <!--목차로 돌아가는 코드 생성-->
+ 	 <a href="javascript:void(0);" 
+	   onclick=
+	      "if(window.history.length > 1) {
+	         window.history.back();
+	      } else {
+	         window.location.href = 'index.html';
+	      }"
+	class="back-button">
+	   목차로 돌아가기
+	</a>
+
+    <img src="image/1일차.jpg">  
     <a href="panorama/1.html" class="view-button">360˚ View</a>
   </div>
   <footer>
