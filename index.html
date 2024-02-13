@@ -1,3 +1,8 @@
+네, 물론이죠! a 태그 안에 있는 img 태그에만 호버 효과를 적용하려면 CSS 선택자를 조금 수정하면 됩니다. 아래에 수정된 코드를 참고해주세요:
+
+HTML
+
+<!DOCTYPE html>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +16,13 @@
     }
     #gallery img {
       width: 100%; /* 이미지의 너비를 100%로 설정 */
+    }
+    #gallery a img {
       transition: transform 0.3s ease; /* 애니메이션 효과를 부드럽게 만들어줍니다 */
     }
-    #gallery img:hover {
+    #gallery a img:hover {
       transform: scale(1.1); /* 이미지를 1.1배로 확대합니다 */
     }
-    
   </style>
 </head>
 <body>
@@ -24,10 +30,7 @@
     
   </header>
   <div id="gallery">  
-    </a><img src="image/main.jpg">
-    <!----a href = "4.html"> <img src="main_image/4.gif"> </a>
-    <a href = "3.html"> <img src="main_image/3.gif"> </a>
-    <a href = "2.html"> <img src="main_image/2.gif"> </a---->
+    <img src="image/main.jpg">
     <a href = "1.html"> <img src="main_image/1.gif"> </a>
     <img src="main_image/end.gif">
   </div>
@@ -36,3 +39,5 @@
   </footer>
 </body>
 </html>
+AI가 생성한 코드입니다. 신중하게 검토하고 사용하세요. FAQ의 자세한 정보.
+이렇게 하면 a 태그 안에 있는 img 태그에만 호버 효과가 적용됩니다. 😊
