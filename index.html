@@ -2,55 +2,129 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!----------- ##########  1. CSS 영역 ########## ---------->
+  
   <style>
+    /* #gallery 요소의 스타일을 설정합니다 */
     #gallery {
-      display: flex; /* #gallery 요소를 flex 컨테이너로 만듭니다 */
-      flex-direction: column; /* #gallery 요소의 자식 요소들을 세로 방향으로 배치합니다 */
-      justify-content: center; /* #gallery 요소의 자식 요소들을 가운데 정렬합니다 */
-      max-width: 400px; /* PC 버전에서 #gallery 요소의 최대 너비를 400픽셀로 설정 */
+      display: flex; /* flexbox 레이아웃을 사용합니다 */
+      flex-direction: column; /* 자식 요소들을 세로 방향으로 배치합니다 */
+      justify-content: center; /* 자식 요소들을 가운데 정렬합니다 */
+      max-width: 400px; /* #gallery 요소의 최대 너비를 400픽셀로 설정합니다 */
       margin: 0 auto; /* #gallery 요소를 화면 가운데에 위치시킵니다 */
     }
+    /* #gallery 내의 모든 링크를 기본적으로 숨깁니다 */
+    #gallery a {
+      display: none;
+    }
+    /* .active 클래스가 있는 링크만 표시합니다 */
+    #gallery a.active {
+      display: block;
+    }
+    /* #gallery 내의 모든 이미지에 대한 스타일을 설정합니다 */
     #gallery img {
-      width: 100%; /* 이미지의 너비를 100%로 설정 */
+      width: 100%; /* 이미지의 너비를 100%로 설정합니다 */
     }
+    /* #gallery 내의 모든 링크에 포함된 이미지에 대한 스타일을 설정합니다 */
     #gallery a img {
-      transition: transform 0.3s ease; /* 애니메이션 효과를 부드럽게 만들어줍니다 */
+      transition: transform 0.3s ease; /* 이미지 크기 변화에 애니메이션 효과를 부여합니다 */
     }
+    /* #gallery 내의 모든 링크에 포함된 이미지에 마우스를 올렸을 때의 스타일을 설정합니다 */
     #gallery a img:hover {
       transform: scale(1.1); /* 이미지를 1.1배로 확대합니다 */
     }
+    /* 더보기 버튼의 스타일을 설정합니다 */
+    #loadMore {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    /* 더보기 버튼에 마우스를 올렸을 때의 스타일을 설정합니다 */
+    #loadMore:hover {
+      background-color: #0056b3;
+    }
   </style>
+
+
+<!----------- ##########  2. Java Script 영역 ########## ---------->
+  
+  <script>
+    window.onload = function() {
+      /* #gallery 내의 모든 링크를 선택합니다 */
+      var links = document.querySelectorAll('#gallery a');
+      /* 더보기 버튼을 선택합니다 */
+      var btn = document.getElementById('loadMore');
+      var count = 0;
+
+      /* 페이지가 로드될 때 처음 5개의 링크를 표시합니다 */
+      for (var i = 0; i < 5; i++) {
+        if (links[i]) {
+          links[i].classList.add('active');
+          count++;
+        }
+      }
+
+      /* 더보기 버튼을 클릭하면 다음 5개의 링크를 표시합니다 */
+      btn.onclick = function() {
+        for (var i = count; i < count + 5; i++) {
+          if (links[i]) {
+            links[i].classList.add('active');
+          }
+        }
+        count += 5;
+
+        /* 더 이상 표시할 링크가 없으면 더보기 버튼을 숨깁니다 */
+        if (count >= links.length) {
+          btn.style.display = 'none';
+        }
+      };
+    };
+  </script>
 </head>
+
+<!----------- ##########  3. HTML Body 영역 ########## ---------->
+  
 <body>
   <header>
-    
+    <!-- 헤더 영역입니다 -->
   </header>
   <div id="gallery">  
-    <img src="main_image/main.jpg">
+    <!-- 메인 이미지입니다. 항상 표시됩니다 -->
+    <img src="main_image/main.jpg" style="display: block;">
 
-    <!---------   ##########  여기부터 이미지 링크 추가 ##########  --------->
-    
+    <!-- 이미지 링크를 추가하는 영역입니다 -->
     <!---a href = "10.html"> <img src="main_image/10.jpg"> </a>
     <a href = "9.html"> <img src="main_image/9.jpg"> </a>
     <a href = "8.html"> <img src="main_image/8.jpg"> </a>
     <a href = "7.html"> <img src="main_image/7.jpg"> </a>
     <a href = "6.html"> <img src="main_image/6.jpg"> </a--->
-
+    
     <a href = "5.html"> <img src="main_image/5.jpg"> </a>
-    <a href = "4.html"> <img src="main_image/4.gif"> </a>
     <a href = "4.html"> <img src="main_image/4.gif"> </a>
     <a href = "3.html"> <img src="main_image/3.gif"> </a>
     <a href = "2.html"> <img src="main_image/2.gif"> </a>
     <a href = "1.html"> <img src="main_image/1.gif"> </a>
-    
-    <!---------   ##########  여기까지 이미지 링크 추가 ##########  --------->
-    
-    <img src="main_image/end.gif">
+
+    <!-- 더보기 버튼입니다 -->
+    <button id="loadMore">▼ 더보기</button>
+
+    <!-- 마지막 이미지입니다. 항상 표시됩니다 -->
+    <img src="main_image/end.gif" style="display: block;">
   </div>
   <footer>
-    <p> © 2024 by MSCH. All rights reserved.</p> <!-- 저작권 정보를 작성 -->
+    <!-- 저작권 정보를 표시하는 푸터 영역입니다 -->
+    <p> © 2024 by MSCH. All rights reserved.</p>
   </footer>
 </body>
 
+  <!-- 페이지 방문 횟수를 표시하는 이미지입니다 -->
   <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmsch-ebook.com&count_bg=%2379C83D&title_bg=%23555555&icon=powerbi.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
+  
 </html>
