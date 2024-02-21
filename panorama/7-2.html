@@ -27,12 +27,21 @@
         cursor: pointer;
         text-decoration: none;
         font-size: 16px;
+    }.popup-image {
+        position: absolute;
+        top: 58%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+	    width: 20%
     }
+        
     </style>
 </head>
 <body>
 
 <div id="panorama"></div>
+<img src="버튼_클릭.gif" class="popup-image" id="popupImage">
+
 <script>
 pannellum.viewer('panorama', {
     "type": "equirectangular",
@@ -54,5 +63,20 @@ pannellum.viewer('panorama', {
        class="back-button">
        이전화면 복귀
     </a>
+
+    <script>
+pannellum.viewer('panorama', {
+    "type": "equirectangular",
+    "panorama": "https://i.imgur.com/ZYyM6Za.jpeg" 
+});
+
+window.onload = function() {
+    var popupImage = document.getElementById('popupImage');
+    popupImage.style.display = 'block';
+    setTimeout(function() {
+        popupImage.style.display = 'none';
+    }, 2500);
+}
+</script>
 </body>
 </html>
