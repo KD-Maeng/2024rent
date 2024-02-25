@@ -27,20 +27,41 @@
         cursor: pointer;
         text-decoration: none;
         font-size: 16px;
-    }.popup-image {
+    }
+    .popup-image {
         position: absolute;
-        top: 61%;
+        top: 63%;
         left: 65%;
         transform: translate(-50%, -50%);
 	    width: 230px
     }
-        
+    .loading-popup {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        text-align: center;
+        display: none;
+        z-index: 9999;
+    }
     </style>
 </head>
 <body>
 
 <div id="panorama"></div>
 <img src="버튼_클릭.gif" class="popup-image" id="popupImage">
+
+<!-- Loading popup -->
+<!----div class="loading-popup" id="loadingPopup">
+    로딩이 지연될 수 있습니다.<br>버튼 클릭 후, 잠시만 기다려 주세요
+</div---->
+
+<div class="loading-popup" id="loadingPopup" style="font-size: 20px; color: white; background-color: black; font-family: 'Comic Sans MS'; border: yellow;">
+    사진로딩이 지연될 수 있습니다.⏳<br>버튼 클릭 후, 잠시만 기다려 주세요
+</div>
+
 
 <script>
 pannellum.viewer('panorama', {
@@ -68,10 +89,17 @@ pannellum.viewer('panorama', {
 
 window.onload = function() {
     var popupImage = document.getElementById('popupImage');
+    var loadingPopup = document.getElementById('loadingPopup');
+    
+    loadingPopup.style.display = 'block';
+    setTimeout(function() {
+        loadingPopup.style.display = 'none';
+    }, 4000);
+    
     popupImage.style.display = 'block';
     setTimeout(function() {
         popupImage.style.display = 'none';
-    }, 2500);
+    }, 2800);
 }
 </script>
 </body>
