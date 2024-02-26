@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panorama Viewer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;  // Prevent scrolling
+    }
+    #panorama {
+        width: 100%;
+        height: 100%;
+    }
+    .back-button {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .popup-image {
+        position: absolute;
+        top: 63%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+	    width: 230px
+    }
+    .loading-popup {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        text-align: center;
+        display: none;
+        z-index: 9999;
+    }
+    </style>
+</head>
+<body>
+
+<div id="panorama"></div>
+<img src="버튼_클릭.gif" class="popup-image" id="popupImage">
+
+<!-- Loading popup -->
+<!----div class="loading-popup" id="loadingPopup">
+    로딩이 지연될 수 있습니다.<br>버튼 클릭 후, 잠시만 기다려 주세요
+</div---->
+
+<div class="loading-popup" id="loadingPopup" style="font-size: 20px; color: white; background-color: black; font-family: 'Comic Sans MS'; border: yellow;">
+    버튼을 클릭 후,<br>잠시만 기다려 주세요⏳
+</div>
+
+
+<script>
+pannellum.viewer('panorama', {
+    "type": "equirectangular",
+    "panorama": "https://i.imgur.com/FhVy3i9.jpeg" 
+});
+
+</script>
+
+
+    <!--- 목차로 돌아가기 버튼생성 ---->
+        <a href="javascript:void(0);" 
+       onclick="
+          if(window.history.length > 1) {
+             window.history.back();
+          } else {
+             window.location.href = 'index.html';
+          }
+       " 
+       class="back-button">
+       이전화면 복귀
+    </a>
+
+    <script>
+
+window.onload = function() {
+    var popupImage = document.getElementById('popupImage');
+    var loadingPopup = document.getElementById('loadingPopup');
+    
+    loadingPopup.style.display = 'block';
+    setTimeout(function() {
+        loadingPopup.style.display = 'none';
+    }, 4000);
+    
+    popupImage.style.display = 'block';
+    setTimeout(function() {
+        popupImage.style.display = 'none';
+    }, 2800);
+}
+</script>
+</body>
+</html>
