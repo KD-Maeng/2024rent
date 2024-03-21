@@ -1,0 +1,85 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    h2 { 
+      text-align: center; /* 텍스트를 가운데 정렬 */
+      font-family: "Malgun Gothic", sans-serif; /* 글꼴을 맑은 고딕으로 설정 */
+    }
+    #gallery {
+      display: flex; /* #gallery 요소를 flex 컨테이너로 만듭니다 */
+      flex-direction: column; /* #gallery 요소의 자식 요소들을 세로 방향으로 배치합니다 */
+      justify-content: center; /* #gallery 요소의 자식 요소들을 가운데 정렬합니다 */
+      max-width: 400px; /* PC 버전에서 #gallery 요소의 최대 너비를 400픽셀로 설정 */
+      margin: 0 auto; /* #gallery 요소를 화면 가운데에 위치시킵니다 */
+      position: relative;
+    }
+    #gallery img {
+      width: 100%; /* 이미지의 너비를 100%로 설정 */
+      border: 0px solid black; /* 이미지에 5픽셀 두께의 검은색 실선 테두리를 추가 */
+    }
+    .back-button {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      background-color: rgba(85, 85, 85, 0.8);
+      border-radius: 0px;
+      transition: transform .2s;
+    }
+    .back-button:hover {
+      transform: scale(1.1);
+    }
+    .view-button {
+      position: absolute;
+      padding: 7px;
+      text-decoration: none;
+      color: white;
+      background-color: rgba(85, 85, 85, 0.9);
+      border-radius: 0px;
+      box-shadow: 0px 0px 10px 5px rgba(175, 175, 130, 0.8);
+      transition: transform .2s;
+    }
+    .view-button:hover {
+      transform: scale(1.1);
+  </style>
+</head>
+<body>
+  <div>
+    <p>    </p> <!-- 텍스트를 변경 -->
+    <!---a href="index.html" class="back-button">뒤로가기</a> <!-- 뒤로가기 버튼을 추가 -->
+  </div>
+  <header>
+    <!--img src="logo.png" alt="logo"--> <!-- 로고 이미지를 삽입 -->
+  </header>
+  <!---h2>사순절 묵상집</h2---> <!-- 텍스트를 변경 -->
+  <div id="gallery">
+    <!-- 이미지 파일의 경로와 이름을 정확하게 적어주세요 -->
+	<br>
+        <br>
+
+	  <!--목차로 돌아가는 코드 생성-->
+ 	 <a href="javascript:void(0);" 
+	   onclick=
+	      "if(window.history.length > 1) {
+	         window.history.back();
+	      } else {
+	         window.location.href = 'index.html';
+	      }"
+	class="back-button">
+	   목차로 돌아가기
+	</a>
+
+    <img src="https://i.imgur.com/43fkqLL.png">  
+
+    <!---a href="panorama/32-1.html" class="view-button" style="position: absolute; top: 33.4%; left: 6.5%;">내부 VR</a--->
+    <a href="panorama/33.html" class="view-button" style="position: absolute; top: 33.4%;left: 71.7%;">360˚ View</a>
+  </div>
+  <footer>
+    <p>© 2024 by MSCH. All rights reserved.</p> <!-- 저작권 정보를 작성 -->
+  </footer>
+</body>
+	<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmsch-ebook.com%2F33.html&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
+</html>
